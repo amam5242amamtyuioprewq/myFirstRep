@@ -343,6 +343,7 @@
                        <option value="ЛДК-Академия биатлона">31</option>
                        <option value="ж/д вокзал-Фан-парк Бобровый лог-пос.Базаиха">37</option>
                        <option value="Дом учёных - пос. Таймыр">38</option>
+                       <option value="КПАТП №7-Полигон">40</option>
                        <option value="Восточный-Сельхозкомплекс">43</option>
                        <option value='Кардиоцентр –  Спорткомплекс "Радуга"'>49</option>
                        <option value="Соколовская - Стела">50</option>
@@ -375,6 +376,11 @@
                        <option value="Студенческий городок - Утиный плёс">6т</option>
                        <option value="Ж/д вокзал-Северо-Западный район">13т</option>
                        <option value='ОАО "Русал" - Сельхозкомплекс'>15т</option>
+                       <option value="КрасТЭЦ - по. Энергетиков">2тр</option>
+                       <option value="КрасТЭЦ-предмостная площадь">4тр</option>
+                       <option value="Поселок Энергетиков-Предмостная площадь">5тр</option>
+                       <option value="Поселок Энергетиков-Предмостная площадь">6тр</option>
+                       <option value='КрасТЭЦ-предмостная площадь'>7тр</option> 
                     </select>
                 </div>
                 <div class="form-group">
@@ -449,6 +455,7 @@
             "31": ['КПАТП-7'],
             "37": ['КПАТП-7'],
             "38": ['АО "СТК"'],
+            "40": ['КПАТП-7'],
             "43": ['ООО "Вавулин-К"'],
             "49": ['КПАТП-5'],
             "50": ['ИП Читашвили Н.С.'],
@@ -480,7 +487,12 @@
             "5т": ['МП Городской транспорт'],
             "6т": ['МП Городской транспорт'],
             "13т": ['МП Городской транспорт'],
-            "15т": ['МП Городской транспорт']
+            "15т": ['МП Городской транспорт'],
+            "2тр": ['МП Городской транспорт']
+            "4тр": ['МП Городской транспорт'],
+            "5тр": ['МП Городской транспорт'],
+            "6тр": ['МП Городской транспорт'],
+            "7тр": ['МП Городской транспорт'],
         };
         
         // Дефолтный список перевозчиков для всех маршрутов, кроме специальных
@@ -584,7 +596,7 @@
         tg.enableClosingConfirmation();
 
         // List of allowed Telegram usernames
-        const allowedUsers = ['romis001', 'im_leg1nd', 'evgen87654321', 'limkid', 'POMILOVAN_ZA_KYHN', 'MishkaShishka', 'APECTOBAH_ZA_KYHN', 'Ivaanzolik2004', 'BILIETER', 'guakamole69', 'wnad13haha', 'dashaaa49', 'ShishkaST', 'assnUSA', 'gvxo_ccx'];
+        const allowedUsers = ['romis001', 'im_leg1nd', 'evgen87654321', 'limkid', 'POMILOVAN_ZA_KYHN', 'MishkaShishka', 'APECTOBAH_ZA_KYHN', 'Ivaanzolik2004', 'BILIETER', 'rrroute66', 'guakamole69', 'wnad13haha', 'dashaaa49', 'ShishkaST', 'assnUSA', 'gvxo_ccx'];
 
         function checkAccess() {
             const username = tg.initDataUnsafe?.user?.username;
@@ -954,7 +966,7 @@
             const busNumber = document.getElementById('busNumber').value;
             const quantity = parseInt(document.getElementById('ticketQuantity').value);
             const selectedRoute = document.getElementById('route').selectedOptions[0].text;
-            const price = quantity * (selectedRoute.endsWith('т') || selectedRoute == 1 ? 31 : 35);
+            const price = quantity * (selectedRoute.endsWith('т') || selectedRoute.endsWith('тр') || selectedRoute == 1 ? 31 : 35);
 
             const ticketContainer = document.getElementById('ticketContainer');
             const ticketContent = document.getElementById('ticketContent');
