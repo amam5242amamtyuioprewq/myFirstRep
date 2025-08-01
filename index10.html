@@ -74,7 +74,7 @@
       button {
           width: 100%;
           padding: 10px;
-          background-color: #e31c1c;
+          background-color: #ec1c;
           color: white;
           border: none;
           border-radius: 5px;
@@ -126,7 +126,7 @@
       }
 
       .ticket-number {
-          color: #e31c1c;
+          color: #ec1c;
           font-size: 18px; /* Increased font size */
           font-weight: bold;
           margin-top: 3px;
@@ -197,7 +197,7 @@
           text-align: center;
       }
       .tab-button.active {
-          border-bottom: 2px solid #e31c1c;
+          border-bottom: 2px solid #ec1c;
       }
 
       .ticket-number-tab, .control-tab {
@@ -233,7 +233,7 @@
       .close-button {
         width: calc(50% - 90px);
         padding: 15px;
-        background-color: #e31c1c;
+        background-color: #ec1c;
         color: white;
         border: none;
         cursor: pointer;
@@ -340,7 +340,7 @@
                        <option value="Ж/д больница – Плодово- ягодная станция">26</option>
                        <option value="Полигон - Преображенский">27</option>
                        <option value="Спортзал - мкрн. Тихие зори">30</option>
-                       <option value="ЛДК-Академия биатлона">31</option>
+                       <option value="ЛДК-Академия биатлона"></option>
                        <option value="Кольцевой маршрут">35</option>
                        <option value="ж/д вокзал-Фан-парк Бобровый лог-пос.Базаиха">37</option>
                        <option value="Дом учёных - пос. Таймыр">38</option>
@@ -455,7 +455,7 @@
             "26": ['КПАТП-5'],
             "27": ['ИП Ялтонский А.М.'],
             "30": ['КПАТП-5'],
-            "31": ['КПАТП-7'],
+            "": ['КПАТП-7'],
             "35": ['КПАТП-5'],
             "37": ['КПАТП-7'],
             "38": ['АО "СТК"'],
@@ -576,7 +576,7 @@
             'Снимок10.PNG',
             'Снимок11.PNG',
             'Снимок12.PNG',
-            'снимок31.png',
+            'снимок.png',
             'Снимок27.PNG'
         ];
         
@@ -615,7 +615,7 @@
                     <div style="text-align: center; padding: 20px; color: white; background-color: #000000; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                         <h2 style="font-size: 24px; margin-bottom: 15px;">Доступ запрещен</h2>
                         <p style="font-size: 18px; margin-bottom: 10px;">Обратитесь к администратору для получения доступа:</p>
-                        <p style="font-size: 18px; color: #e31c1c;">Telegram: @hanzeloo</p>
+                        <p style="font-size: 18px; color: #ec1c;">Telegram: @hanzeloo</p>
                     </div>
                 `;
                 return false;
@@ -816,7 +816,7 @@
             const qrTicketNumber = document.getElementById('qrTicketNumber');
             const controlTab = document.getElementById('controlTab');
             ticketContainer.style.transform = 'translateX(0)';
-            qrTicketNumber.style.color = '#e31c1c';
+            qrTicketNumber.style.color = '#ec1c';
             qrTicketNumber.style.borderBottom = 'none';
             qrTicketNumber.style.position = 'relative';
 
@@ -838,7 +838,7 @@
                 ticketUnderline.style.left = '0';
                 ticketUnderline.style.width = '100%';
                 ticketUnderline.style.height = '2px';
-                ticketUnderline.style.backgroundColor = '#e31c1c';
+                ticketUnderline.style.backgroundColor = '#ec1c';
                 ticketUnderline.id = 'ticket-underline';
 
                 qrTicketNumber.appendChild(ticketUnderline);
@@ -924,7 +924,7 @@
                 ticketUnderline.remove();
             }
 
-            controlTab.style.color = '#e31c1c';
+            controlTab.style.color = '#ec1c';
             controlTab.style.borderBottom = 'none';
             controlTab.style.position = 'relative';
             controlTab.style.paddingBottom = '0'; // Убираем отступ снизу
@@ -946,7 +946,7 @@
                 controlUnderline.style.left = '0';
                 controlUnderline.style.width = '100%';
                 controlUnderline.style.height = '2px';
-                controlUnderline.style.backgroundColor = '#e31c1c';
+                controlUnderline.style.backgroundColor = '#ec1c';
                 controlUnderline.id = 'control-underline';
 
                 controlTab.appendChild(controlUnderline);
@@ -972,7 +972,7 @@
             const busNumber = document.getElementById('busNumber').value;
             const quantity = parseInt(document.getElementById('ticketQuantity').value);
             const selectedRoute = document.getElementById('route').selectedOptions[0].text;
-            const price = quantity * (selectedRoute.endsWith('т') || selectedRoute.endsWith('тр') || selectedRoute == 1 ? 31 : 35);
+            const price = quantity * (selectedRoute.endsWith('т') || selectedRoute.endsWith('тр') || selectedRoute == 1 ? 40 : 44);
 
             const ticketContainer = document.getElementById('ticketContainer');
             const ticketContent = document.getElementById('ticketContent');
