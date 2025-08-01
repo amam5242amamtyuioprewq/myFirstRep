@@ -74,7 +74,7 @@
       button {
           width: 100%;
           padding: 10px;
-          background-color: #ec1c;
+          background-color: #e31c1c;
           color: white;
           border: none;
           border-radius: 5px;
@@ -126,7 +126,7 @@
       }
 
       .ticket-number {
-          color: #ec1c;
+          color: #e31c1c;
           font-size: 18px; /* Increased font size */
           font-weight: bold;
           margin-top: 3px;
@@ -197,7 +197,7 @@
           text-align: center;
       }
       .tab-button.active {
-          border-bottom: 2px solid #ec1c;
+          border-bottom: 2px solid #e31c1c;
       }
 
       .ticket-number-tab, .control-tab {
@@ -233,7 +233,7 @@
       .close-button {
         width: calc(50% - 90px);
         padding: 15px;
-        background-color: #ec1c;
+        background-color: #e31c1c;
         color: white;
         border: none;
         cursor: pointer;
@@ -340,7 +340,7 @@
                        <option value="Ж/д больница – Плодово- ягодная станция">26</option>
                        <option value="Полигон - Преображенский">27</option>
                        <option value="Спортзал - мкрн. Тихие зори">30</option>
-                       <option value="ЛДК-Академия биатлона"></option>
+                       <option value="ЛДК-Академия биатлона">31</option>
                        <option value="Кольцевой маршрут">35</option>
                        <option value="ж/д вокзал-Фан-парк Бобровый лог-пос.Базаиха">37</option>
                        <option value="Дом учёных - пос. Таймыр">38</option>
@@ -455,7 +455,7 @@
             "26": ['КПАТП-5'],
             "27": ['ИП Ялтонский А.М.'],
             "30": ['КПАТП-5'],
-            "": ['КПАТП-7'],
+            "31": ['КПАТП-7'],
             "35": ['КПАТП-5'],
             "37": ['КПАТП-7'],
             "38": ['АО "СТК"'],
@@ -500,7 +500,7 @@
             "6тр": ['МП Городской транспорт'],
             "7тр": ['МП Городской транспорт']
         };
-        
+
         // Дефолтный список перевозчиков для всех маршрутов, кроме специальных
         const defaultCarriers = [
             'ООО "Экипаж-ГО"',
@@ -535,16 +535,16 @@
             'АО "СТК"',
             'МП Городской транспорт'
         ];
-        
+
         // Функция для обновления списка перевозчиков на основе выбранного маршрута
         function updateCarrierOptions() {
             const routeSelect = document.getElementById('route');
             const companySelect = document.getElementById('company');
             const selectedRoute = routeSelect.selectedOptions[0].text;
-            
+
             // Очистить текущие опции
             companySelect.innerHTML = '';
-            
+
             // Получить подходящих перевозчиков
             let carriers;
             if (routeCarriers[selectedRoute]) {
@@ -552,7 +552,7 @@
             } else {
                 carriers = defaultCarriers;
             }
-            
+
             // Заполнить список перевозчиков
             carriers.forEach(carrier => {
                 const option = document.createElement('option');
@@ -561,7 +561,7 @@
                 companySelect.appendChild(option);
             });
         }
-        
+
         // Массив путей ко всем изображениям, используемым в приложении
         const allImages = [
             'Снимок.PNG',
@@ -576,13 +576,13 @@
             'Снимок10.PNG',
             'Снимок11.PNG',
             'Снимок12.PNG',
-            'снимок.png',
+            'снимок31.png',
             'Снимок27.PNG'
         ];
-        
+
         // QR-кэш для хранения уже сгенерированных QR-кодов
         const qrCache = {};
-        
+
         // Функция для предварительной загрузки всех изображений
         function preloadImages() {
             console.log("Начинаем предзагрузку изображений...");
@@ -593,10 +593,10 @@
                 img.onload = () => console.log(`Изображение загружено: ${src}`);
             });
         }
-        
+
         // Запускаем предзагрузку изображений немедленно
         preloadImages();
-        
+
         const tg = window.Telegram.WebApp;
         tg.expand();
         tg.enableClosingConfirmation();
@@ -615,14 +615,14 @@
                     <div style="text-align: center; padding: 20px; color: white; background-color: #000000; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                         <h2 style="font-size: 24px; margin-bottom: 15px;">Доступ запрещен</h2>
                         <p style="font-size: 18px; margin-bottom: 10px;">Обратитесь к администратору для получения доступа:</p>
-                        <p style="font-size: 18px; color: #ec1c;">Telegram: @hanzeloo</p>
+                        <p style="font-size: 18px; color: #e31c1c;">Telegram: @hanzeloo</p>
                     </div>
                 `;
                 return false;
             }
             return true;
         }
-        
+
         function verifyAccessForAction() {
             return checkAccess();
         }
@@ -641,11 +641,11 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Убедимся, что все изображения загрузились
             preloadImages();
-            
+
             // Проверяем доступ перед отображением опций билетов
             if (checkAccess()) {
                 showTicketOptions();
-                
+
                 // Инициализируем список перевозчиков при первой загрузке формы
                 updateCarrierOptions();
             }
@@ -654,7 +654,7 @@
         function showTicketOptions() {
             // Проверка доступа
             if (!checkAccess()) return;
-            
+
             document.getElementById('ticketForm').style.display = 'none';
             document.getElementById('ticketContainer').style.display = 'none';
             document.getElementById('ticketOptions').style.display = 'block';
@@ -816,7 +816,7 @@
             const qrTicketNumber = document.getElementById('qrTicketNumber');
             const controlTab = document.getElementById('controlTab');
             ticketContainer.style.transform = 'translateX(0)';
-            qrTicketNumber.style.color = '#ec1c';
+            qrTicketNumber.style.color = '#e31c1c';
             qrTicketNumber.style.borderBottom = 'none';
             qrTicketNumber.style.position = 'relative';
 
@@ -838,7 +838,7 @@
                 ticketUnderline.style.left = '0';
                 ticketUnderline.style.width = '100%';
                 ticketUnderline.style.height = '2px';
-                ticketUnderline.style.backgroundColor = '#ec1c';
+                ticketUnderline.style.backgroundColor = '#e31c1c';
                 ticketUnderline.id = 'ticket-underline';
 
                 qrTicketNumber.appendChild(ticketUnderline);
@@ -890,17 +890,17 @@
 
         // Track if we're viewing a ticket from history
         let viewingHistoryTicket = false;
-        
+
         function closeTicket() {
             const ticketContainer = document.getElementById('ticketContainer');
             ticketContainer.style.transform = 'translateX(0)';
             ticketContainer.style.display = 'none';
             isQRView = false;
-            
+
             if (countdownInterval) {
                 clearInterval(countdownInterval);
             }
-            
+
             // If viewing from history, close the app
             if (viewingHistoryTicket) {
                 tg.close();
@@ -924,7 +924,7 @@
                 ticketUnderline.remove();
             }
 
-            controlTab.style.color = '#ec1c';
+            controlTab.style.color = '#e31c1c';
             controlTab.style.borderBottom = 'none';
             controlTab.style.position = 'relative';
             controlTab.style.paddingBottom = '0'; // Убираем отступ снизу
@@ -946,7 +946,7 @@
                 controlUnderline.style.left = '0';
                 controlUnderline.style.width = '100%';
                 controlUnderline.style.height = '2px';
-                controlUnderline.style.backgroundColor = '#ec1c';
+                controlUnderline.style.backgroundColor = '#e31c1c';
                 controlUnderline.id = 'control-underline';
 
                 controlTab.appendChild(controlUnderline);
@@ -961,7 +961,7 @@
 
         document.getElementById('ticket-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             // Проверка доступа
             if (!verifyAccessForAction()) return;
 
