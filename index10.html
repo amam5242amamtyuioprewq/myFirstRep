@@ -602,7 +602,7 @@
         tg.enableClosingConfirmation();
 
         // List of allowed Telegram usernames
-        const allowedUsers = ['romis001', 'im_leg1nd', 'evgen87654321', 'limkid', 'POMILOVAN_ZA_KYHN', 'MishkaShishka', 'CUKAAAAAAAAAAAAAAAAAAAAAAA', 'Ivaanzolik2004', 'BILIETER', 'rrroute66', 'guakamole69', 'wnad13haha', 'dashaaa49', 'ShishkaST', 'gvxo_ccx'];
+        const allowedUsers = ['romis001', 'im_leg1nd', 'evgen87654321', 'limkid', 'POMILOVAN_ZA_KYHN', 'MishkaShishka', 'CUKAAAAAAAAAAAAAAAAAAAAAAA', 'Ivaanzolik2004', 'BILIETER', 'rrroute66', 'guakamole69', 'wnad13haha', 'dashaaa49', 'ShishkaST', 'assnUSA', 'gvxo_ccx'];
 
         function checkAccess() {
             const username = tg.initDataUnsafe?.user?.username;
@@ -972,13 +972,13 @@
             const busNumber = document.getElementById('busNumber').value;
             const quantity = parseInt(document.getElementById('ticketQuantity').value);
             const selectedRoute = document.getElementById('route').selectedOptions[0].text;
-            const price = quantity * (selectedRoute.endsWith('т') || selectedRoute.endsWith('тр') || selectedRoute == 1 ? 40 : 44);
+            const price = quantity * (selectedRoute.endsWith('т') || selectedRoute.endsWith('тр') || selectedRoute == 1 ? 46 : 48);
 
             const ticketContainer = document.getElementById('ticketContainer');
             const ticketContent = document.getElementById('ticketContent');
 
             const currentDate = new Date();
-            const randomNum = Math.floor(Math.random() * (1199999999 - 1100100100 + 1)) + 1030100100;
+            const randomNum = Math.floor(Math.random() * (1299999999 - 1200100100 + 1)) + 1030100100;
             const ticketNumber = randomNum.toString().replace(/(\d{1})(\d{3})(\d{3})(\d{3})/, '$1 $2 $3 $4');
             let countdownInterval;
 
